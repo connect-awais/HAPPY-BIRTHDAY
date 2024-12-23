@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 /* General Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Ensures padding and border don't cause overflow */
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -11,6 +17,10 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
+    flex-direction: column; /* Align elements vertically */
+    padding: 0 20px; /* Ensures padding for all screens */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure the body width doesn't exceed the screen */
 }
 
 /* Gradient Background Animation */
@@ -20,10 +30,10 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Glowing Text with Smooth Color Change without Blurring */
+/* Glowing Text with Smooth Color Change */
 .glow-text {
-    font-size: 9rem;
-    margin-top: -200px;
+    font-size: 6rem; /* Increased font size */
+    margin: 20px 0; /* Proper spacing */
     font-family: 'Dancing Script', cursive;
     font-weight: 900;
     color: #ff7eb3; /* Initial color */
@@ -37,8 +47,12 @@ body {
     background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffcc70);
     background-size: 300%; /* Makes animation smoother */
     border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Ensure the text does not overflow */
+    word-wrap: break-word; /* Prevent word overflow */
 }
 
+/* Keyframes for Color Changing Effect */
 @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
@@ -51,20 +65,58 @@ body {
     }
 }
 
-/* Keyframes for color changing effect */
-@keyframes colorCycle {
-    0% { color: #ff7eb3; }
-    25% { color: #fad0c4; }
-    50% { color: #a18cd1; }
-    75% { color: #fbc2eb; }
-    100% { color: #ff4b81; }
+.glow-text:first-of-type {
+    margin-top: -20px; /* Moves "HAPPY BIRTHDAY!" up */
+    margin-bottom: 50px; /* Adds space between "HAPPY BIRTHDAY!" and "Dear Ali" */
+    font-size: 8rem; /* Default font size for large screens */
 }
 
-/* Glow Animation */
-@keyframes glowPulse {
-    0% { text-shadow: 0 0 10px #ff7eb3, 0 0 20px #ff7eb3, 0 0 30px #ff7eb3; }
-    100% { text-shadow: 0 0 20px #ff4b81, 0 0 40px #ff4b81, 0 0 60px #ff4b81; }
+.glow-text:last-of-type {
+    padding: 15px 30px; /* Increase padding for more space around the text */
+    background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffcc70); /* Same gradient */
+    border-radius: 10px;
+    text-align: center;
+    width: fit-content;
+    max-width: 80%;
+    margin: 20px auto; /* Centers and adds spacing from top */
+    font-size: 6rem; /* Default font size for large screens */
 }
+
+/* Responsive font sizes for smaller screens */
+@media (max-width: 1024px) {
+    .glow-text:first-of-type {
+        font-size: 6rem; /* Smaller font size for tablets */
+    }
+
+    .glow-text:last-of-type {
+        font-size: 4.5rem; /* Smaller font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .glow-text:first-of-type {
+        font-size: 5rem; /* Smaller font size for medium devices like large phones */
+    }
+
+    .glow-text:last-of-type {
+        font-size: 4rem; /* Smaller font size for medium devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .glow-text:first-of-type {
+        font-size: 3.5rem; /* Font size for smaller phones */
+    }
+
+    .glow-text:last-of-type {
+        font-size: 3rem; /* Font size for smaller phones */
+    }
+
+    body {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+
 
 /* Particle Styles */
 #particles {
@@ -76,6 +128,7 @@ body {
     pointer-events: none;
     top: 0;
     left: 0;
+    max-width: 100%; /* Prevents overflow */
 }
 
 /* Confetti Canvas */
@@ -86,50 +139,34 @@ canvas {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    max-width: 100%; /* Ensures the canvas fits the viewport */
 }
 
-#confetti-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* So it doesn't block clicks */
-}
-
-/* Confetti Styles */
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ffcc00; /* Initial color */
-    opacity: 0.7;
-    transform: rotate(45deg);
-    animation: fall 3s linear infinite, drift 3s ease-in-out infinite;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0) rotate(0);
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
+/* Responsive Design for Different Devices */
+@media (max-width: 1440px) {
+    .glow-text {
+        font-size: 5rem; /* Slightly smaller font for large laptops */
     }
 }
 
-/* Animation for horizontal drifting */
-@keyframes drift {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(30px);
+@media (max-width: 1024px) {
+    .glow-text {
+        font-size: 4.5rem; /* Adjust font size for smaller laptops/tablets */
     }
 }
 
-/* Animated Background */
-@keyframes dynamicBackground {
-    0% { background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1); }
-    50% { background: linear-gradient(135deg, #ffcc70, #ff758c, #ff7eb3, #fbc2eb); }
-    100% { background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1); }
+@media (max-width: 768px) {
+    .glow-text {
+        font-size: 3.5rem; /* Adjusted for tablets */
+    }
 }
+
+@media (max-width: 480px) {
+    .glow-text {
+        font-size: 3rem; /* Font size for phones */
+    }
+    body {
+        padding: 20px;
+    }
+}
+
