@@ -251,50 +251,20 @@ body {
 
 
 
+body {
+  animation: slideIn 0.99s ease-out forwards;
+}
 
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.content {
+  padding: 50px;
+  text-align: center;
+}
