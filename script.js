@@ -70,3 +70,9 @@ function drawConfetti() {
   requestAnimationFrame(drawConfetti);
 }
 drawConfetti();
+
+// Redirect to another page after 5 seconds
+setTimeout(function () {
+  window.location.href = "next-page.html"; // Replace with the URL of your next page
+}, 3000); // 3000ms = 3 seconds
+
