@@ -90,7 +90,7 @@ html {
 }
 
 /* Responsive adjustments for all mobile devices */
-@media (max-width: 768px) { /* For tablets and smaller screens */
+@media (max-width: 78px) { /* For tablets and smaller screens */
     .sticky-header {
         padding: 10px 0; /* Reduce header padding */
         font-size: 120%; /* Adjust font size for smaller screens */
