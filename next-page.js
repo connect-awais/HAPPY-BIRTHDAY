@@ -78,3 +78,8 @@ setTimeout(function () {
     birthdayCard.classList.add('open');
   }
 }, 1000);
+
+
+function goToPage() {
+  window.location.href = "memories.html";
+}
