@@ -78,27 +78,29 @@ html {
 }
 
 .img-2 {
-    margin-top: 1000px; /* Maintain the same margin */
+    margin-top: 200px; /* Maintain the same margin */
     width: 750px; /* Set fixed width */
     height: auto; /* Keep aspect ratio */
 }
 
 .img-3 {
-    margin-top: 980px; /* Maintain the same margin */
+    margin-top: 1200px; /* Maintain the same margin */
+    margin-bottom: 1000px;
     width: 750px; /* Set fixed width */
     height: auto; /* Keep aspect ratio */
 }
 
 /* Responsive adjustments for all mobile devices */
-@media (max-width: 78px) { /* For tablets and smaller screens */
+@media (max-width: 768px) { /* For tablets and smaller screens */
     .sticky-header {
         padding: 10px 0; /* Reduce header padding */
         font-size: 120%; /* Adjust font size for smaller screens */
     }
 
     .image-container {
+        width: 200px;
         height: auto; /* Allow content-based height */
-        margin-top: 20px; /* Add space between the header and images */
+        margin-top: 10px; /* Add space between the header and images */
         display: flex;
         flex-direction: column; /* Ensure images stack vertically */
         align-items: center; /* Center align images */
@@ -107,7 +109,7 @@ html {
     .image-container img {
         max-width: 90%; /* Scale images to fit the screen */
         height: auto; /* Maintain aspect ratio */
-        margin: 15px 0; /* Add consistent spacing around images */
+        margin: 15px 10; /* Add consistent spacing around images */
         border-radius: 20px; /* Keep rounded corners for a consistent design */
     }
 
